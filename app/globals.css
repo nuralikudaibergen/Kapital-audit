@@ -1,0 +1,863 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-heading: var(--font-montserrat), 'Montserrat Fallback';
+  --font-sans: var(--font-open-sans), 'Open Sans Fallback';
+  --font-mono: var(--font-open-sans), 'Open Sans Fallback';
+  --color-brand: var(--brand);
+  --color-brand-foreground: var(--brand-foreground);
+  --color-ink: var(--ink);
+  --color-ink-foreground: var(--ink-foreground);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-foreground: var(--foreground);
+  --color-background: var(--background);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+:root {
+  color-scheme: light;
+  --background: oklch(0.92 0.16 95);
+  --foreground: oklch(0.15 0 0);
+  --card: oklch(0.97 0.04 95);
+  --card-foreground: oklch(0.15 0 0);
+  --popover: oklch(0.97 0.04 95);
+  --popover-foreground: oklch(0.15 0 0);
+  --primary: oklch(0.15 0 0);
+  --primary-foreground: oklch(0.95 0.04 95);
+  --secondary: oklch(0.96 0.06 95);
+  --secondary-foreground: oklch(0.15 0 0);
+  --muted: oklch(0.93 0.04 95);
+  --muted-foreground: oklch(0.4 0 0);
+  --accent: oklch(0.15 0 0);
+  --accent-foreground: oklch(0.95 0.04 95);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.55 0.04 95);
+  --input: oklch(0.55 0.04 95);
+  --ring: oklch(0.15 0 0);
+  --brand: oklch(0.15 0 0);
+  --brand-foreground: oklch(0.95 0.04 95);
+  --ink: oklch(0.15 0 0);
+  --ink-foreground: oklch(0.95 0.04 95);
+  --chart-1: oklch(0.15 0 0);
+  --chart-2: oklch(0.35 0 0);
+  --chart-3: oklch(0.55 0 0);
+  --chart-4: oklch(0.75 0 0);
+  --chart-5: oklch(0.92 0.16 95);
+  --radius: 0.625rem;
+  --sidebar: oklch(0.97 0.04 95);
+  --sidebar-foreground: oklch(0.15 0 0);
+  --sidebar-primary: oklch(0.15 0 0);
+  --sidebar-primary-foreground: oklch(0.95 0.04 95);
+  --sidebar-accent: oklch(0.93 0.04 95);
+  --sidebar-accent-foreground: oklch(0.15 0 0);
+  --sidebar-border: oklch(0.55 0.04 95);
+  --sidebar-ring: oklch(0.15 0 0);
+}
+
+.dark {
+  color-scheme: dark;
+  --background: oklch(0.92 0.16 95);
+  --foreground: oklch(0.15 0 0);
+  --card: oklch(0.95 0.04 95);
+  --card-foreground: oklch(0.15 0 0);
+  --popover: oklch(0.95 0.04 95);
+  --popover-foreground: oklch(0.15 0 0);
+  --primary: oklch(0.15 0 0);
+  --primary-foreground: oklch(0.95 0.04 95);
+  --secondary: oklch(0.18 0 0);
+  --secondary-foreground: oklch(0.95 0.04 95);
+  --muted: oklch(0.18 0 0);
+  --muted-foreground: oklch(0.78 0.04 95);
+  --accent: oklch(0.15 0 0);
+  --accent-foreground: oklch(0.95 0.04 95);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(0.15 0 0 / 18%);
+  --input: oklch(0.15 0 0 / 20%);
+  --ring: oklch(0.15 0 0);
+  --chart-1: oklch(0.15 0 0);
+  --chart-2: oklch(0.35 0 0);
+  --chart-3: oklch(0.55 0 0);
+  --chart-4: oklch(0.75 0 0);
+  --chart-5: oklch(0.92 0.16 95);
+  --sidebar: oklch(0.95 0.04 95);
+  --sidebar-foreground: oklch(0.15 0 0);
+  --sidebar-primary: oklch(0.15 0 0);
+  --sidebar-primary-foreground: oklch(0.95 0.04 95);
+  --sidebar-accent: oklch(0.2 0 0);
+  --sidebar-accent-foreground: oklch(0.95 0.04 95);
+  --sidebar-border: oklch(0.15 0 0 / 18%);
+  --sidebar-ring: oklch(0.15 0 0);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not(.light) {
+    color-scheme: dark;
+    --background: oklch(0.92 0.16 95);
+    --foreground: oklch(0.15 0 0);
+    --card: oklch(0.95 0.04 95);
+    --card-foreground: oklch(0.15 0 0);
+    --popover: oklch(0.95 0.04 95);
+    --popover-foreground: oklch(0.15 0 0);
+    --primary: oklch(0.15 0 0);
+    --primary-foreground: oklch(0.95 0.04 95);
+    --secondary: oklch(0.18 0 0);
+    --secondary-foreground: oklch(0.95 0.04 95);
+    --muted: oklch(0.18 0 0);
+    --muted-foreground: oklch(0.78 0.04 95);
+    --accent: oklch(0.15 0 0);
+    --accent-foreground: oklch(0.95 0.04 95);
+    --destructive: oklch(0.704 0.191 22.216);
+    --border: oklch(0.15 0 0 / 18%);
+    --input: oklch(0.15 0 0 / 20%);
+    --ring: oklch(0.15 0 0);
+    --chart-1: oklch(0.15 0 0);
+    --chart-2: oklch(0.35 0 0);
+    --chart-3: oklch(0.55 0 0);
+    --chart-4: oklch(0.75 0 0);
+    --chart-5: oklch(0.92 0.16 95);
+    --sidebar: oklch(0.95 0.04 95);
+    --sidebar-foreground: oklch(0.15 0 0);
+    --sidebar-primary: oklch(0.15 0 0);
+    --sidebar-primary-foreground: oklch(0.95 0.04 95);
+    --sidebar-accent: oklch(0.2 0 0);
+    --sidebar-accent-foreground: oklch(0.95 0.04 95);
+    --sidebar-border: oklch(0.15 0 0 / 18%);
+    --sidebar-ring: oklch(0.15 0 0);
+  }
+}
+
+:root,
+.dark {
+  color-scheme: light;
+  --background: #ffd21a;
+  --foreground: #111111;
+  --card: #fff0a3;
+  --card-foreground: #111111;
+  --popover: #fff0a3;
+  --popover-foreground: #111111;
+  --primary: #111111;
+  --primary-foreground: #ffd21a;
+  --secondary: #ffe36a;
+  --secondary-foreground: #111111;
+  --muted: #f6d94c;
+  --muted-foreground: #3a3100;
+  --accent: #111111;
+  --accent-foreground: #ffd21a;
+  --destructive: #b91c1c;
+  --border: #11111138;
+  --input: #1111114d;
+  --ring: #111111;
+  --brand: #111111;
+  --brand-foreground: #ffd21a;
+  --ink: #111111;
+  --ink-foreground: #ffd21a;
+  --chart-1: #111111;
+  --chart-2: #4a3b00;
+  --chart-3: #806900;
+  --chart-4: #caa000;
+  --chart-5: #ffd21a;
+  --sidebar: #ffe36a;
+  --sidebar-foreground: #111111;
+  --sidebar-primary: #111111;
+  --sidebar-primary-foreground: #ffd21a;
+  --sidebar-accent: #f6d94c;
+  --sidebar-accent-foreground: #111111;
+  --sidebar-border: #11111138;
+  --sidebar-ring: #111111;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not(.light) {
+    color-scheme: light;
+    --background: #ffd21a;
+    --foreground: #111111;
+    --card: #fff0a3;
+    --card-foreground: #111111;
+    --popover: #fff0a3;
+    --popover-foreground: #111111;
+    --primary: #111111;
+    --primary-foreground: #ffd21a;
+    --secondary: #ffe36a;
+    --secondary-foreground: #111111;
+    --muted: #f6d94c;
+    --muted-foreground: #3a3100;
+    --accent: #111111;
+    --accent-foreground: #ffd21a;
+    --destructive: #b91c1c;
+    --border: #11111138;
+    --input: #1111114d;
+    --ring: #111111;
+    --brand: #111111;
+    --brand-foreground: #ffd21a;
+    --ink: #111111;
+    --ink-foreground: #ffd21a;
+    --chart-1: #111111;
+    --chart-2: #4a3b00;
+    --chart-3: #806900;
+    --chart-4: #caa000;
+    --chart-5: #ffd21a;
+    --sidebar: #ffe36a;
+    --sidebar-foreground: #111111;
+    --sidebar-primary: #111111;
+    --sidebar-primary-foreground: #ffd21a;
+    --sidebar-accent: #f6d94c;
+    --sidebar-accent-foreground: #111111;
+    --sidebar-border: #11111138;
+    --sidebar-ring: #111111;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply overflow-x-hidden bg-background text-foreground;
+    background-image:
+      linear-gradient(to right, rgba(17, 17, 17, 0.055) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(17, 17, 17, 0.055) 1px, transparent 1px),
+      repeating-linear-gradient(135deg, transparent 0 96px, rgba(17, 17, 17, 0.045) 96px 104px, transparent 104px 168px);
+    background-size: 56px 56px, 56px 56px, 220px 220px;
+  }
+  html {
+    @apply overflow-x-hidden font-sans scroll-smooth;
+  }
+}
+
+@layer components {
+  .brand-panel {
+    border: 2px solid var(--ink);
+    background: color-mix(in srgb, var(--background) 68%, white);
+    box-shadow: 10px 10px 0 rgba(17, 17, 17, 0.2);
+  }
+
+  .brand-button {
+    border: 2px solid var(--ink);
+    background: var(--ink);
+    color: var(--background);
+    box-shadow: 5px 5px 0 rgba(17, 17, 17, 0.24);
+  }
+
+  .brand-button:hover {
+    background: var(--background);
+    color: var(--ink);
+    box-shadow: 7px 7px 0 rgba(17, 17, 17, 0.3);
+  }
+
+  .brand-button-outline {
+    border: 2px solid var(--ink);
+    background: color-mix(in srgb, var(--background) 72%, white);
+    color: var(--ink);
+    box-shadow: 5px 5px 0 rgba(17, 17, 17, 0.18);
+  }
+
+  .brand-button-outline:hover {
+    background: var(--ink);
+    color: var(--background);
+    box-shadow: 7px 7px 0 rgba(17, 17, 17, 0.26);
+  }
+
+  .brand-logo-frame {
+    border: 2px solid var(--ink);
+    background: var(--background);
+    box-shadow: 8px 8px 0 rgba(17, 17, 17, 0.22);
+  }
+}
+
+.brand-panel {
+  border: 2px solid var(--ink);
+  background: color-mix(in srgb, var(--background) 68%, white);
+  box-shadow: 10px 10px 0 rgba(17, 17, 17, 0.2);
+}
+
+.brand-button {
+  border: 2px solid var(--ink);
+  background-color: var(--ink);
+  color: var(--background);
+  box-shadow: 5px 5px 0 rgba(17, 17, 17, 0.24);
+}
+
+.brand-button:hover {
+  background-color: var(--background);
+  color: var(--ink);
+  box-shadow: 7px 7px 0 rgba(17, 17, 17, 0.3);
+}
+
+.brand-button-outline {
+  border: 2px solid var(--ink);
+  background-color: color-mix(in srgb, var(--background) 72%, white);
+  color: var(--ink);
+  box-shadow: 5px 5px 0 rgba(17, 17, 17, 0.18);
+}
+
+.brand-button-outline:hover {
+  background-color: var(--ink);
+  color: var(--background);
+  box-shadow: 7px 7px 0 rgba(17, 17, 17, 0.26);
+}
+
+.brand-logo-frame {
+  border: 2px solid var(--ink);
+  background-color: var(--background);
+  box-shadow: 8px 8px 0 rgba(17, 17, 17, 0.22);
+}
+
+/* ---------- Animations & effects ---------- */
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float-slow {
+  0%,
+  100% {
+    transform: translateY(0) translateX(0);
+  }
+  50% {
+    transform: translateY(-22px) translateX(12px);
+  }
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.7;
+  }
+  70% {
+    transform: scale(1.25);
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes spin-slow {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes gradient-pan {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* ---------- Reveal directions ---------- */
+@keyframes reveal-left {
+  from {
+    opacity: 0;
+    transform: translate3d(-60px, 0, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes reveal-right {
+  from {
+    opacity: 0;
+    transform: translate3d(60px, 0, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes reveal-scale {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes reveal-blur {
+  from {
+    opacity: 0;
+    filter: blur(14px);
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+  }
+}
+
+@keyframes reveal-clip {
+  from {
+    clip-path: inset(0 0 100% 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+/* ---------- Marquee ---------- */
+@keyframes marquee-left {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@keyframes marquee-right {
+  from {
+    transform: translate3d(-50%, 0, 0);
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+/* ---------- Scroll cue ---------- */
+@keyframes scroll-cue-bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(8px);
+  }
+}
+
+/* Scroll reveal — enhanced on scroll-down */
+.reveal {
+  opacity: 0;
+  transform: translateY(60px) scale(0.97);
+  transition:
+    opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.hero-in {
+  opacity: 0;
+  animation: reveal-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+.hero-in-1 {
+  animation-delay: 0.1s;
+}
+.hero-in-2 {
+  animation-delay: 0.35s;
+}
+.hero-in-3 {
+  animation-delay: 0.55s;
+}
+
+.tab-in {
+  animation: reveal-up 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.animate-float-slow {
+  animation: float-slow 9s ease-in-out infinite;
+}
+.animate-spin-slow {
+  animation: spin-slow 26s linear infinite;
+}
+
+/* Animated brand gradient text/bg */
+.animated-gradient {
+  background-size: 200% 200%;
+  animation: gradient-pan 8s ease infinite;
+}
+
+/* Shine sweep on hover */
+.shine {
+  position: relative;
+  overflow: hidden;
+}
+.shine::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(
+    100deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.28) 50%,
+    transparent 70%
+  );
+}
+.shine:hover::after {
+  animation: shimmer 0.9s ease;
+}
+
+/* ---------- Reveal directions (applied by <Reveal from="..."/>) ---------- */
+.reveal-from-left {
+  opacity: 0;
+  transform: translate3d(-90px, 0, 0);
+  transition:
+    opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+.reveal-from-right {
+  opacity: 0;
+  transform: translate3d(90px, 0, 0);
+  transition:
+    opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+.reveal-from-scale {
+  opacity: 0;
+  transform: scale(0.88);
+  transition:
+    opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+.reveal-from-blur {
+  opacity: 0;
+  filter: blur(18px);
+  transform: translateY(40px);
+  transition:
+    opacity 1s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 1s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, filter, transform;
+}
+.reveal-from-clip {
+  clip-path: inset(0 0 100% 0);
+  transition: clip-path 1.3s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: clip-path;
+}
+
+.reveal-from-left.is-visible,
+.reveal-from-right.is-visible,
+.reveal-from-scale.is-visible,
+.reveal-from-blur.is-visible,
+.reveal-from-clip.is-visible {
+  opacity: 1;
+  transform: none;
+  filter: none;
+  clip-path: inset(0 0 0 0);
+}
+
+/* ---------- Marquee ---------- */
+.marquee {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+}
+.marquee-track-left {
+  animation: marquee-left 40s linear infinite;
+}
+.marquee-track-right {
+  animation: marquee-right 40s linear infinite;
+}
+.marquee-paused:hover .marquee-track-left,
+.marquee-paused:hover .marquee-track-right {
+  animation-play-state: paused;
+}
+
+/* ---------- Scroll-progress bar ---------- */
+.scroll-progress {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 100%;
+  background: linear-gradient(
+    90deg,
+    var(--primary),
+    color-mix(in oklch, var(--primary) 60%, white)
+  );
+  transform-origin: left center;
+  transform: scaleX(0);
+  transition: transform 0.05s linear;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal-from-left,
+  .reveal-from-right,
+  .reveal-from-scale,
+  .reveal-from-blur,
+  .reveal-from-clip {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    clip-path: none;
+    transition: none;
+  }
+  .reveal.is-visible,
+  .reveal-from-left.is-visible,
+  .reveal-from-right.is-visible,
+  .reveal-from-scale.is-visible,
+  .reveal-from-blur.is-visible,
+  .reveal-from-clip.is-visible {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    clip-path: none;
+  }
+  .animate-float-slow,
+  .animate-spin-slow,
+  .animated-gradient,
+  .marquee-track-left,
+  .marquee-track-right {
+    animation: none;
+  }
+  .scroll-progress {
+    transition: none;
+  }
+}
+
+/* ---------- Scoped palette: everything below the Hero ----------
+   The Hero keeps the original yellow/black brand colors. Every section
+   that lives inside `.page-after-hero` is re-themed to a more premium
+   deep-navy + warm-amber palette. Variables are scoped so that the
+   Hero (which sits OUTSIDE the wrapper) is not affected.
+------------------------------------------------------------------ */
+.page-after-hero {
+  /* Surfaces */
+  --background: #f5f3ee;            /* page background — warm off-white */
+  --foreground: #0f172a;            /* primary text — deep ink */
+  --card: #ffffff;                  /* card surfaces — clean white */
+  --card-foreground: #0f172a;
+  --popover: #ffffff;
+  --popover-foreground: #0f172a;
+
+  /* Brand accents */
+  --primary: #b45309;               /* warm amber — used for CTAs */
+  --primary-foreground: #ffffff;
+  --secondary: #1e293b;             /* deep slate — section bands */
+  --secondary-foreground: #f5f3ee;
+  --muted: #e7e3d8;                 /* subtle neutral fills */
+  --muted-foreground: #475569;
+  --accent: #b45309;
+  --accent-foreground: #ffffff;
+  --destructive: #b91c1c;
+
+  /* Lines & focus */
+  --border: #0f172a1f;
+  --input: #0f172a26;
+  --ring: #b45309;
+
+  /* Brand & ink */
+  --brand: #b45309;
+  --brand-foreground: #ffffff;
+  --ink: #0f172a;
+  --ink-foreground: #f5f3ee;
+
+  /* Charts */
+  --chart-1: #0f172a;
+  --chart-2: #1e293b;
+  --chart-3: #b45309;
+  --chart-4: #d97706;
+  --chart-5: #f5f3ee;
+
+  /* Sidebar */
+  --sidebar: #ffffff;
+  --sidebar-foreground: #0f172a;
+  --sidebar-primary: #b45309;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #e7e3d8;
+  --sidebar-accent-foreground: #0f172a;
+  --sidebar-border: #0f172a1f;
+  --sidebar-ring: #b45309;
+
+  color-scheme: light;
+}
+
+/* Within the scoped region, give body/content surfaces a coherent feel. */
+.page-after-hero .bg-background {
+  background-color: var(--background);
+}
+.page-after-hero .bg-secondary {
+  background-color: var(--secondary);
+  color: var(--secondary-foreground);
+}
+.page-after-hero .bg-ink {
+  background-color: var(--ink);
+  color: var(--ink-foreground);
+}
+.page-after-hero .bg-card {
+  background-color: var(--card);
+  color: var(--card-foreground);
+}
+.page-after-hero .bg-muted {
+  background-color: var(--muted);
+  color: var(--muted-foreground);
+}
+
+/* Re-skin brand primitives in the scoped region so that the same
+   component class reads as amber-on-navy instead of black-on-yellow. */
+.page-after-hero .brand-panel {
+  border: 2px solid var(--ink);
+  background: var(--card);
+  box-shadow: 10px 10px 0 color-mix(in srgb, var(--ink) 80%, transparent);
+}
+
+.page-after-hero .brand-button {
+  border: 2px solid var(--primary);
+  background: var(--primary);
+  color: var(--primary-foreground);
+  box-shadow: 5px 5px 0 color-mix(in srgb, var(--ink) 80%, transparent);
+}
+.page-after-hero .brand-button:hover {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--primary-foreground);
+  box-shadow: 7px 7px 0 color-mix(in srgb, var(--ink) 90%, transparent);
+}
+
+.page-after-hero .brand-button-outline {
+  border: 2px solid var(--ink);
+  background: var(--card);
+  color: var(--ink);
+  box-shadow: 5px 5px 0 color-mix(in srgb, var(--ink) 60%, transparent);
+}
+.page-after-hero .brand-button-outline:hover {
+  background: var(--ink);
+  color: var(--ink-foreground);
+  box-shadow: 7px 7px 0 color-mix(in srgb, var(--ink) 80%, transparent);
+}
+
+.page-after-hero .brand-logo-frame {
+  border: 2px solid var(--ink);
+  background: var(--card);
+  box-shadow: 8px 8px 0 color-mix(in srgb, var(--ink) 80%, transparent);
+}
+
+/* Tighter text colors that follow the new palette. */
+.page-after-hero .text-foreground {
+  color: var(--foreground);
+}
+.page-after-hero .text-ink {
+  color: var(--ink);
+}
+.page-after-hero .text-ink-foreground {
+  color: var(--ink-foreground);
+}
+.page-after-hero .text-primary {
+  color: var(--primary);
+}
+.page-after-hero .text-muted-foreground {
+  color: var(--muted-foreground);
+}
+.page-after-hero .text-background {
+  color: var(--background);
+}
+
+/* Border aliases used across sections. */
+.page-after-hero .border-ink {
+  border-color: var(--ink);
+}
+.page-after-hero .border-border {
+  border-color: var(--border);
+}
+.page-after-hero .border-ink\/10,
+.page-after-hero .border-ink\/15,
+.page-after-hero .border-ink\/20 {
+  border-color: color-mix(in srgb, var(--ink) 18%, transparent);
+}
+
+/* Section accent strip (small horizontal rule next to eyebrows). */
+.page-after-hero .bg-primary {
+  background-color: var(--primary);
+}
+
+/* Discount banner's white-on-primary block stays readable in the new palette. */
+.page-after-hero .bg-primary-foreground {
+  background-color: var(--primary-foreground);
+}
+
+/* ---------- Header re-skin when scrolled past the Hero ----------
+   The header is OUTSIDE `.page-after-hero`, so we re-skin it explicitly
+   here. When the user scrolls into the deep-navy region we flip the
+   internal text/link colors to match.
+------------------------------------------------------------------ */
+header[data-header-state="after"] {
+  background-color: #0f172a;
+  color: #f5f3ee;
+}
+header[data-header-state="after"] .text-ink,
+header[data-header-state="after"] .text-ink\/70,
+header[data-header-state="after"] .border-ink {
+  color: #f5f3ee;
+  border-color: #f5f3ee;
+}
+header[data-header-state="after"] .brand-logo-frame {
+  background-color: #ffffff;
+  border-color: #f5f3ee;
+}
+header[data-header-state="after"] .brand-button {
+  background-color: #b45309;
+  color: #ffffff;
+  border-color: #b45309;
+}
+header[data-header-state="after"] nav {
+  background-color: rgba(15, 23, 42, 0.85) !important;
+  border-color: rgba(245, 243, 238, 0.18) !important;
+}
