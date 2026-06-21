@@ -18,7 +18,6 @@ const openSans = Open_Sans({
 export const metadata: Metadata = {
   title: `${company.legalName} — аудиторская организация в Шымкенте`,
   description: `${company.legalName}: аудит финансовой отчетности, обязательный и инициативный аудит, налоговое консультирование и бухгалтерское сопровождение. БИН ${company.bin}.`,
-  generator: 'v0.app',
   icons: {
     icon: [
       {
