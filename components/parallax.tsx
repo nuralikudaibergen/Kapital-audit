@@ -17,6 +17,8 @@ interface ParallaxProps {
    * (visually slower than the page). Typical decorative range: -0.3 .. 0.2.
    */
   speed?: number
+  maxOffset?: number
+  disableBelow?: number
   className?: string
   as?: ElementType
   style?: CSSProperties
@@ -31,6 +33,8 @@ interface ParallaxProps {
 export function Parallax({
   children,
   speed = 0.3,
+  maxOffset = 40,
+  disableBelow = 768,
   className = "",
   as,
   style,
@@ -42,9 +46,23 @@ export function Parallax({
 
   useLayoutEffect(() => {
     const node = innerRef.current
-    if (!node) return
-    node.style.transform = `translate3d(0, ${scrollY * speed}px, 0)`
-  }, [scrollY, speed])
+    const shell = shellRef.current
+    if (!node || !shell) return
+
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    if (prefersReducedMotion || window.innerWidth < disableBelow) {
+      node.style.transform = "translate3d(0, 0, 0)"
+      return
+    }
+
+    const rect = shell.getBoundingClientRect()
+    const viewportCenter = window.innerHeight / 2
+    const elementCenter = rect.top + rect.height / 2
+    const rawOffset = (viewportCenter - elementCenter) * speed
+    const offset = Math.max(-maxOffset, Math.min(maxOffset, rawOffset))
+
+    node.style.transform = `translate3d(0, ${offset}px, 0)`
+  }, [scrollY, speed, maxOffset, disableBelow])
 
   return (
     <Tag
@@ -54,7 +72,13 @@ export function Parallax({
     >
       <div
         ref={innerRef}
-        style={{ willChange: "transform", transform: "translate3d(0,0,0)" }}
+        style={{
+          height: "100%",
+          minHeight: "100%",
+          width: "100%",
+          willChange: "transform",
+          transform: "translate3d(0,0,0)",
+        }}
       >
         {children}
       </div>

@@ -59,8 +59,8 @@ export function Help() {
           </a>
         </Reveal>
 
-        <Reveal delay={120} className="brand-panel group relative overflow-hidden rounded-2xl">
-          <Parallax speed={0.04}>
+        <Reveal delay={120} className="brand-panel group relative aspect-[4/3] overflow-hidden rounded-2xl md:aspect-[760/620]">
+          <Parallax speed={0.04} className="h-full">
             <Image
               src="/help-1.png"
               alt="Специалисты обсуждают аудит на встрече"

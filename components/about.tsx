@@ -25,8 +25,8 @@ export function About() {
             className="absolute -left-6 -top-6 h-20 w-32 -skew-x-[32deg] bg-ink/18"
             aria-hidden="true"
           />
-          <Parallax speed={0.04} className="brand-panel overflow-hidden rounded-xl">
-            <div className="group">
+          <Parallax speed={0.04} className="brand-panel aspect-[4/3] overflow-hidden rounded-xl">
+            <div className="group h-full">
               <Image
                 src="/about-1.png"
                 alt="Аудитор за работой с финансовыми документами"
@@ -36,8 +36,8 @@ export function About() {
               />
             </div>
           </Parallax>
-          <Parallax speed={0.06} className="brand-panel mt-8 overflow-hidden rounded-xl">
-            <div className="group">
+          <Parallax speed={0.06} className="brand-panel mt-8 aspect-[4/3] overflow-hidden rounded-xl">
+            <div className="group h-full">
               <Image
                 src="/about-2.png"
                 alt="Анализ финансовой отчетности"
